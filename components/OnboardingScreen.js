@@ -5,6 +5,7 @@ import {
   StatusBar,
   StyleSheet,
   Image,
+  ImageBackground,
   Dimensions,
   TouchableOpacity,
   Alert
@@ -24,48 +25,61 @@ function OnboardingScreen () {
         <StatusBar translucent={true} backgroundColor={'transparent'} hidden={false} />
         <Swiper autoplay={true} loop={true} showsPagination={false}>
           <View style={styles.slide}>
-            <Image
+            <ImageBackground
               source={require('../assets/image1.png')}
-              style={styles.image}
-            />
+              style={styles.image}>
+              <Text style={styles.subtitle}>Friends and Family Banking</Text>
+            </ImageBackground>
           </View>
           <View style={styles.slide}>
-            <Image
+            <ImageBackground
               source={require('../assets/image2.png')}
-              style={styles.image}
-            />
+              style={styles.image}>
+              <Text style={styles.subtitle}>Friends and Family Banking</Text>
+            </ImageBackground>
           </View>
           <View style={styles.slide}>
-            <Image
+            <ImageBackground
               source={require('../assets/image3.png')}
-              style={styles.image}
-            />
+              style={styles.image}>
+              <Text style={styles.subtitle}>Friends and Family Banking</Text>
+            </ImageBackground>          
           </View>
           <View style={styles.slide}>
-            <Image
+            <ImageBackground
               source={require('../assets/image4.png')}
-              style={styles.image}
-            />
+              style={styles.image}>
+              <Text style={styles.subtitle}>Friends and Family Banking</Text>
+            </ImageBackground>            
           </View>
         </Swiper>
 
         <View style={styles.frame_absolute}>    
+          
           <View style={styles.logo_part_container}>
             <Image style={styles.logo_image}
               source={require('../assets/images/logo_onboarding_screen.png')}
             />
-            <Text style={styles.subtitle}>Friends and Family Banking</Text>
           </View>
+          
+          <View style={styles.help_img_wrapper}>
+            <Image style={styles.help_img}
+              source={require('../assets/images/help.png')}
+            />
+          </View>
+
           <View style={styles.buttonContainer}>
+            
             <TouchableOpacity style={styles.signupContainer} onPress={() => _onPress('Tapped Sign up')}>
               <Text style={styles.signup}>Sign up</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => _onPress('Tapped Log in')}>
-              <View style={styles.loginContainer}>
-                <Text style={styles.login}>Log in</Text>
-              </View>
+            
+            <TouchableOpacity style={styles.loginContainer} onPress={() => _onPress('Tapped Log in')}>
+              <Text style={styles.login}>Log in</Text>
             </TouchableOpacity>
+
           </View>
+
         </View>
       </View>
     );
@@ -91,50 +105,52 @@ const styles = StyleSheet.create({
     bottom: 0,
     flexDirection: 'column',
     width: width,
+    paddingBottom: 44,
+    paddingHorizontal: 24,
   },
   logo_image: {
-    width: '60%',
-    height: 100,
-     resizeMode: 'contain'
-   },
-  logo_part_container: {
-    // position: 'absolute',
     width: '100%',
-    // bottom: 200,
+    height: 100,
+    resizeMode: 'contain',
+    marginBottom: 60
+   },
+  help_img: {
+    width: 40,
+    height: 37
+  },
+  help_img_wrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-end'
+  },
+  logo_part_container: {
+    width: '100%',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
-//   titleContainer: {
-//     width: 300,
-//     height: 70,
-//     alignItems: 'center',
-//     justifyContent: 'center'
-//   },
-//   subTitleContainer: {
-//     height: 50,
-//     opacity: 0.7,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
   subtitle: {
+    position: 'absolute',
     fontFamily: 'Helvetica',
-    fontSize: 36,
-    color: '#FFFFFF'
+    fontSize: 32,
+    color: '#FFFFFF',
+    bottom: 260,
+    width: '100%',
+    textAlign: 'center',
   },
   buttonContainer: {
-    marginVertical: 20,
-    height: 140,
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginTop: 24
   },
   signupContainer: {
-    width: width - 40,
-    height: 60,
+    width: '100%',
+    height: 64,
     backgroundColor: primaryColor,
-    borderRadius: 10,
+    borderRadius: 11,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginBottom: 16,
   },
   signup: {
     // fontFamily: 'Helvetica',
@@ -143,13 +159,13 @@ const styles = StyleSheet.create({
     color: '#fff'
   },
   loginContainer: {
-    width: width - 40,
+    width: '100%',
     height: 60,
-    borderRadius: 10,
+    borderRadius: 11,
     alignItems: 'center',
     justifyContent: 'center',
     borderColor: '#FFFFFF',
-    borderWidth: 2
+    borderWidth: 3,
   },
   login: {
     fontFamily: 'Helvetica',
