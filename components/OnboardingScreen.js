@@ -10,12 +10,21 @@ import {
   TouchableOpacity,
   Alert
 } from 'react-native';
+import { useFonts } from 'expo-font'
 import Swiper from 'react-native-swiper';
 
 const { width, height } = Dimensions.get('window');
 const primaryColor = '#FF9502'
 
 function OnboardingScreen () {
+
+  const [ fontsLoaded ] = useFonts({
+    'Helvetica' : require('../assets/fonts/Helvetica.ttf')
+  })
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   const _onPress = text => {
     Alert.alert(text);
@@ -28,28 +37,28 @@ function OnboardingScreen () {
             <ImageBackground
               source={require('../assets/image1.png')}
               style={styles.image}>
-              <Text style={styles.subtitle}>Friends and Family Banking</Text>
+              <Text style={styles.subtitle}  >Friends and Family Banking</Text>
             </ImageBackground>
           </View>
           <View style={styles.slide}>
             <ImageBackground
               source={require('../assets/image2.png')}
               style={styles.image}>
-              <Text style={styles.subtitle}>Friends and Family Banking</Text>
+              <Text style={styles.subtitle}>Testing Text 1</Text>
             </ImageBackground>
           </View>
           <View style={styles.slide}>
             <ImageBackground
               source={require('../assets/image3.png')}
               style={styles.image}>
-              <Text style={styles.subtitle}>Friends and Family Banking</Text>
+              <Text style={styles.subtitle}>Testing Text 2</Text>
             </ImageBackground>          
           </View>
           <View style={styles.slide}>
             <ImageBackground
               source={require('../assets/image4.png')}
               style={styles.image}>
-              <Text style={styles.subtitle}>Friends and Family Banking</Text>
+              <Text style={styles.subtitle}>Testing Text 3</Text>
             </ImageBackground>            
           </View>
         </Swiper>
@@ -112,7 +121,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 100,
     resizeMode: 'contain',
-    marginBottom: 60
+    marginBottom: 65
    },
   help_img: {
     width: 40,
@@ -153,7 +162,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   signup: {
-    // fontFamily: 'Helvetica',
+    fontFamily: 'Helvetica',
     fontWeight: 'bold',
     fontSize: 20,
     color: '#fff'
